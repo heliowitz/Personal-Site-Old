@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $("#lines").on("click", function(){
+                    var n = $("#menuSquareBehind").css("height");
+                    if (n != "300px")
+                        {
+                            $("#menuSquare").css("-webkit-transition-delay", "0s");
+                            $("#menuSquare").css("transition-delay", "0s");
+                            $("#menuSquareBehind").css("-webkit-transition-delay", "0s");
+                            $("#menuSquareBehind").css("transition-delay", "0s");   
+                            
+                            $("#menuSquare").css("height", "300px");
+                            $("#menuSquare").css("width", "300px");
+                            $("#menuSquareBehind").css("height", "300px");
+                            $("#menuSquareBehind").css("width", "300px");
+                            $("#menuOptions").delay(500).fadeIn("1000");
+                            
+                            $("#rectLine2").fadeOut("10");
+                        
+                            $("#rectLine1").animate(
+                                {'marginTop' : "+=12.5px"}).css("-webkit-transform", "rotate(" + 45 +"deg)");
+                            
+                            $("#rectLine3").animate(
+                                {'marginTop' : "-=12.5px"}).css("-webkit-transform", "rotate(" + (-45) +"deg)");    
+                        }
+                    else
+                    {
+                        $("#menuSquare").css("-webkit-transition-delay", ".2s");
+                        $("#menuSquare").css("transition-delay", ".2s");
+                        $("#menuSquareBehind").css("-webkit-transition-delay", ".2s");
+                        $("#menuSquareBehind").css("transition-delay", ".2s");     
+                        
+                        $("#menuOptions").fadeOut("1000");
+                        $("#menuSquare").css("height", "65px");
+                        $("#menuSquare").css("width", "65px");
+                        $("#menuSquareBehind").css("height", "65px");
+                        $("#menuSquareBehind").css("width", "65px");      
+                        
+                        $("#rectLine2").fadeIn();
+                        
+                        $("#rectLine1").animate(
+                                {'marginTop' : "-=12.5px"}).css("-webkit-transform", "rotate(" + 0 +"deg)");
+                            
+                        $("#rectLine3").animate(
+                            {'marginTop' : "+=12.5px"}).css("-webkit-transform", "rotate(" + (0) +"deg)");
+                    }
+                });
+            });
+        </script>
+    
+        <script>
+            $(document).ready(function(){
+	
+	           //Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('#toTopBox').fadeIn();
+		} else {
+			$('#toTopBox').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('#toTopBox').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+});
+        </script>
+       
+        
+        <style>
+            
+            body, html
+            {
+                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                margin: 0px;
+                
+            }
+            
+            #menuSquare
+            {
+                background-color: black;
+                height: 65px;
+                width: 65px;
+                margin-left: 30px;
+                margin-top: 30px;
+                z-index: 5;
+                position: fixed;
+                border-style: solid;
+                
+                
+                
+                -webkit-transition: width .75s, height .75s; 
+                transition: width .75s, height .75s;
+                -webkit-transition-delay:0s;
+                transition-delay: 0s;
+            }
+            #rectLine1
+            {
+                background-color: white;
+                height: 4px;
+                width: 40px;
+                top: 18px;
+                left: 12.5px;
+                position: absolute;
+                
+                -webkit-transform: rotate(0deg);
+            }
+            #rectLine2
+            {
+                background-color: white;
+                height: 4px;
+                width: 40px;
+                top: 30px;
+                left: 12.5px;
+                position: absolute;
+            }
+            #rectLine3
+            {
+                background-color: white;
+                height: 4px;
+                width: 40px;
+                top: 42px;
+                left: 12.5px;
+                position: absolute;
+            }
+            #menuSquareBehind
+            {
+                height: 65px;
+                width: 65px;
+                margin-left:17px;
+                margin-top:17px;
+                z-index:4;
+                position:fixed;
+                border-style: solid;
+                
+                -webkit-transition: width .75s, height .75s;
+                transition: width .75s, height .75s;
+                -webkit-transition-delay:0s;
+                transition-delay: 0s;
+            }
+            ul
+            {
+                list-style-type:none;
+                margin: 0px;
+                padding: 0px;
+                width: 100px;
+                background-color: black;
+                position: relative;
+                top: 50px;
+                left: 95px;
+                font-weight: 700;
+                display: none;
+                -webkit-transition: width .75s, height .75s; 
+                transition: width .75s, height .75s;
+            }
+            li a
+            {
+                display: block;
+                color: white;
+                padding: 8px 0 8px 0;
+                text-decoration: none;
+                text-align: center;
+                
+                -webkit-transition: color 0.25s;
+                animation: color 0.25s;
+            }
+            li a:hover
+            {
+                color: red;
+                text-decoration: overline;
+            }
+            #lines
+            {
+                height:  65px;
+                width:65px;
+                position: absolute;
+            }
+            #lines:hover + rectLine1
+            {
+                background-color: red;
+            }
+            
+            #mainScreen
+            {
+                height: 600px;
+                width: 100vw;
+            }
+            #mainText
+            {
+                height: auto;
+                width: 70vw;
+                position:absolute;
+                top:200px;
+                font-size: 50px;
+                text-align: center;
+                font-weight: 100;
+                padding-left: 20px;
+                padding-right: 20px;
+                margin-left: 11.5vw;
+                padding-top:20px;
+                z-index: 2;
+                padding-bottom: 20px;
+             
+            }
+            #mainContact
+            {
+                height: auto;
+                width:auto;
+                font-size: 13px;
+                position:fixed;
+                right: 15px;
+                top: 15px;
+                font-weight: 700;
+                z-index: 5;
+            }
+            a.contact
+            {
+                text-decoration: none;
+                color: black;
+                
+                -webkit-transition: color 0.25s;
+                animation: color 0.25s;
+            }
+            a.contact:hover
+            {
+                color: red;
+                text-decoration: overline;
+            }
+            #photos
+            {
+                width: 100vw;
+                height: 55vw;
+            }
+            #mainPhoto
+            {
+                width: 95vw;
+                height: auto;
+                max-width: 100%;
+                position: absolute;
+                border-bottom-style: solid;
+                border-bottom-width: 5px;
+                border-color: red;
+            }
+            #mainPic
+            {
+                max-width: 100%;
+                filter: grayscale(100%);
+                -webkit-filter: grayscale(100%);
+                
+                -webkit-transition: color 0.25s;
+                animation: 0.25s;
+            }
+            #mainPic:hover + #mainPicText
+            {
+                color: white;
+            }
+            #mainPicText
+            {
+                position: absolute;
+                font-size: 16px;
+                bottom: 15px;
+                left:15px;
+                font-weight: 700;
+                color: black;
+                z-index: 4;
+                padding: 5px;
+                
+                -webkit-transition: color 0.25s;
+                animation: 0.25s;
+            }
+            #mainPicText:hover
+            {
+                color:white;
+            }
+            #mainPhotoBox
+            {
+                width: 95vw;
+                height: auto;
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #introText
+            {
+                margin-top: 15px;
+                width: 35vw;
+                height: auto;
+                margin-left: 20vw;
+                line-height: 170%;
+            }
+            #toTopBox
+            {
+                width: 65px;
+                height: 65px;
+                bottom: 17px;
+                right: 17px;
+                position: fixed;
+                z-index: 10;
+                display:none;
+            }
+            #toTopBox:hover #toTopLine
+            {
+                background-color: red;
+            }
+            #toTopBox:hover #toTopLine2
+            {
+                background-color: red;
+            }
+            #toTopBox:hover #toTopLine3
+            {
+                background-color: red;
+            }
+            #toTopBox:hover #toTopLine4
+            {
+                background-color: red;
+            }
+            
+            #toTopLine
+            {
+                position: absolute;
+                background-color: black;
+                width: 25px;
+                height: 4px;
+                top: 20px;
+                left: 12px;
+                -ms-transform: rotate(-45deg); /* IE 9 */
+                -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+                transform: rotate(-45deg);
+                
+                -webkit-transition: background-color 0.25s;
+                animation: 0.25s;
+            }
+            #toTopLine2
+            {
+                position: absolute;
+                background-color: black;
+                width: 25px;
+                height: 4px;
+                top: 20px;
+                right: 12px;
+                -ms-transform: rotate(45deg); /* IE 9 */
+                -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+                transform: rotate(45deg);
+                
+                -webkit-transition: background-color 0.25s;
+                animation: 0.25s;
+            }
+            #toTopLine3
+            {
+                position: absolute;
+                background-color: black;
+                width: 25px;
+                height: 4px;
+                top: 35px;
+                left: 12px;
+                -ms-transform: rotate(-45deg); /* IE 9 */
+                -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+                transform: rotate(-45deg);
+                
+                -webkit-transition: background-color 0.25s;
+                animation: 0.25s;
+            }
+            #toTopLine4
+            {
+                position: absolute;
+                background-color: black;
+                width: 25px;
+                height: 4px;
+                top: 35px;
+                right: 12px;
+                -ms-transform: rotate(45deg); /* IE 9 */
+                -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+                transform: rotate(45deg);
+                
+                -webkit-transition: background-color 0.25s;
+                animation: 0.25s;
+            }
+            
+                        
+        </style>
+        
+    </head>
+    
+    <body>
+        <div id = "menuSquare">
+            <div id = "lines">
+                <div id = "rectLine1"></div>
+                <div id = "rectLine2"></div>
+                <div id = "rectLine3"></div>
+            </div>
+            
+            
+            <ul id = "menuOptions">
+                <li><a href = "www.google.ca">Home</a></li>
+                <li><a href = "">About Me</a></li>
+                <li><a href = "">Projects</a></li>
+                <li><a href = "">Resume</a></li>
+                <li><a href = "">Contact</a></li>
+            </ul>
+        </div>
+        <div id = "menuSquareBehind"></div>
+        
+        <div id = "mainScreen">
+            <div id = "mainText">
+                <span style = "color: red">Jack Ding</span> - Western University Student. Programmer <span style = "color: red">&</span> Designer.
+        </div>
+            
+            
+            <div id = "mainContact"><a class = "contact" href = "">Twitter</a> / 
+                <a class = "contact" href = "">LinkedIn</a> / 
+                <a class = "contact" href = "">Github</a> / 
+                <a class = "contact" href = "">Email</a></div>
+
+            </div>
+        
+        <a id = "toTopBox" href = "">
+            <div id = "toTopLine"></div>
+            <div id = "toTopLine2"></div>
+            <div id = "toTopLine3"></div>
+            <div id = "toTopLine4"></div>
+        </a>
+        
+        <div id = "photos">
+            
+            
+            <div id = "mainPhotoBox">
+                <div id = "mainPhoto">
+                    <img id = "mainPic" src = "jack.JPG">
+                    <div id = "mainPicText">Grand Canyon<br>
+                    Jun. 12th, '04</div>
+                </div>
+            </div>
+        
+        </div>
+        <div id = "introText">
+            <span style = "font-size: 30px; color: red">Me</span><br><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+        
+        
+        
+    </body>
+    
+</html>

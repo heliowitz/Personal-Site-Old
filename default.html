@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+            <script>
+                
+                var n = 0; /*Default not clicked */
+                
+            $(document).ready(function(){
+                        (function() {
+
+                  "use strict";
+
+                  var toggles = document.querySelectorAll(".c-hamburger");
+
+                  for (var i = toggles.length - 1; i >= 0; i--) {
+                    var toggle = toggles[i];
+                    toggleHandler(toggle);
+                  };
+
+                  function toggleHandler(toggle) {
+                    toggle.addEventListener( "click", function(e) {
+                      e.preventDefault();
+                      (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
+                       
+                        if (n == 0)
+                            {
+                                $("#menuSquare").css("-webkit-transition-delay", "0s");
+                                $("#menuSquare").css("transition-delay", "0s");
+                                $("#menuSquareBehind").css("-webkit-transition-delay", "0s");
+                                $("#menuSquareBehind").css("transition-delay", "0s");   
+
+                                $("#menuSquare").css("height", "300px");
+                                $("#menuSquare").css("width", "300px");
+                                $("#menuSquareBehind").css("height", "300px");
+                                $("#menuSquareBehind").css("width", "300px");
+                                $("#menuOptions").delay(500).fadeIn("1000");   
+
+                                n = 1;
+                            }
+                        else
+                        {
+                            $("#menuSquare").css("-webkit-transition-delay", ".2s");
+                            $("#menuSquare").css("transition-delay", ".2s");
+                            $("#menuSquareBehind").css("-webkit-transition-delay", ".2s");
+                            $("#menuSquareBehind").css("transition-delay", ".2s");     
+
+                            $("#menuOptions").fadeOut("10", function(){
+                                $("#menuSquare").css("height", "35px");
+                                $("#menuSquare").css("width", "35px");
+                                $("#menuSquareBehind").css("height", "35px");
+                                $("#menuSquareBehind").css("width", "35px");  
+                            });
+                            n = 0;
+                        }
+ 
+                    
+                    });
+                  }
+
+                })();
+            });
+            </script>
+    
+
+        
+       
+        <script>
+            $(document).ready(function(){
+	           //Check to see if the window is top if not then display button
+                $(window).scroll(function(){
+                    if ($(this).scrollTop() > 100) {
+                        $('#toTopBox').fadeIn();
+                        $('#toDownBox').fadeOut();
+                    } else {
+                        $('#toTopBox').fadeOut();
+                        $('#toDownBox').fadeIn();
+                    }
+                });
+
+                //Click event to scroll to top
+                $('#toTopBox').click(function(){
+                    $('html, body').animate({scrollTop : 0},800);
+                    return false;
+                });
+                
+                $('#toDownBox').click(function(){
+                    $('html, body').animate({scrollTop : 800},800);
+                    return false;
+                });
+
+            });
+        </script>
+        
+        
+        
+        <!--
+        <script>
+            $(document).ready(function(){
+	           //Check to see if the window is top if not then display button
+                $(window).scroll(function(){
+                    if ($(this).scrollTop() > 100) {
+                        $('#toTopLine').css("transform", "rotate(-45deg)");
+                        $('#toTopLine2').css("transform", "rotate(45deg)");
+                        $('#toTopLine3').css("transform", "rotate(-45deg)");
+                        $('#toTopLine4').css("transform", "rotate(45deg)");
+                    } else {
+                       $('#toTopLine').css("transform", "rotate(45deg)");
+                        $('#toTopLine2').css("transform", "rotate(-45deg)");
+                        $('#toTopLine3').css("transform", "rotate(45deg)");
+                        $('#toTopLine4').css("transform", "rotate(-45deg)");
+                    }
+                });
+
+                //Click event to scroll to top
+                $('#toTopBox').click(function(){
+                        $('html, body').animate({scrollTop : 0},800);
+                        return false;
+                    
+
+                });
+
+            });
+        </script>-->
+        
+        
+        
+        
+        <script type="text/javascript">
+            $(document).ready(function()
+            {
+            //Function to generate random color code
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF'.split('');
+                var color = '#';
+                for (var i = 0; i < 6; i++ ) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            function change_random_bgcolor(change_time) {
+            setInterval(function change_color() {
+                $("body").animate({
+                    backgroundColor: getRandomColor()
+                }, 500);
+            }, change_time);
+            }
+            change_random_bgcolor(1000);
+            });
+        </script>
+        
+        
+        
+        <script type="text/javascript">
+            $(document).ready(function()
+            {
+
+            function toggle_color(color1,color2,cycle_time,wait_time) {
+            setInterval(function first_color() {
+                $("body").animate({
+                    backgroundColor: color1
+                }, 1000, function () {
+                    setTimeout(change_color, wait_time);
+                });
+            }, cycle_time);
+
+            function change_color() {
+                $("body").animate({
+                    backgroundColor: color2
+                }, 1000, function () {
+                    setTimeout(function () {}, wait_time);
+                });
+            }
+            }
+
+            toggle_color('#61beb3','#7d4b68',8000,3000);
+            });
+        </script>
+ 
+       
+        
+        
+        
+        <style>
+            
+            body, html
+            {
+                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                margin: 0px;
+                max-width: 100%;
+            }
+            /* HELLO*/
+            #menuSquare
+            {
+                background-color: white;
+                height: 35px;
+                width: 35px;
+                margin-left: 25px;
+                margin-top: 25px;
+                z-index: 5;
+                position: fixed;
+                border-style: solid;
+                border-color: black;
+                 
+                -webkit-transition: width .75s, height .75s, border-color 0.25s; 
+                transition: width .75s, height .75s, border-color 0.25s;
+            
+                
+                -webkit-transition-delay:0s;
+                transition-delay: 0s;
+            }
+            #menuSquare:hover
+            {
+                border-color: blue;
+            }
+            #menuSquare:hover + #menuSquareBehind
+            {
+                border-color: blue;
+            }
+            
+            /*Middle*/
+            .c-hamburger span {
+              display: block;
+              position: absolute;
+              top: 16px;
+              left: 8px;
+              right: 8px;
+              height: 3px;
+              background: black;
+            }
+            
+          
+
+            .c-hamburger span::before,
+            .c-hamburger span::after {
+              position: absolute;
+              display: block;
+              left: 0;
+              width: 100%;
+              height: 3px;
+              background-color: black;
+              content: "";
+            }
+
+            .c-hamburger span::before {
+              top: -7px;
+            }
+
+            .c-hamburger span::after {
+              bottom: -7px;
+            }
+            
+            .c-hamburger {
+              display: block;
+              position: relative;
+              overflow: hidden;
+              margin: 0;
+              padding: 0;
+              width: 35px;
+              height: 35px;
+              font-size: 0;
+              text-indent: -9999px;
+              appearance: none;
+              box-shadow: none;
+              border-radius: none;
+              border: none;
+              cursor: pointer;
+              transition: background 0.3s;
+            }
+
+            .c-hamburger:focus {
+              outline: none;
+            }
+            
+            .c-hamburger--htx {
+              background-color: white;
+            }
+
+            .c-hamburger--htx span {
+              transition: background 0s 0.3s;
+            }
+
+            .c-hamburger--htx span::before,
+            .c-hamburger--htx span::after {
+              transition-duration: 0.3s, 0.3s;
+              transition-delay: 0.3s, 0s;
+            }
+
+            .c-hamburger--htx span::before {
+              transition-property: top, transform;
+            }
+
+            .c-hamburger--htx span::after {
+              transition-property: bottom, transform;
+            }
+
+            /* active state, i.e. menu open */
+            .c-hamburger--htx.is-active {
+              background-color: white;
+            }
+
+            .c-hamburger--htx.is-active span {
+              background: none;
+            }
+
+            .c-hamburger--htx.is-active span::before {
+              top: 0;
+              transform: rotate(45deg);
+            }
+
+            .c-hamburger--htx.is-active span::after {
+              bottom: 0;
+              transform: rotate(-45deg);
+            }
+
+            .c-hamburger--htx.is-active span::before,
+            .c-hamburger--htx.is-active span::after {
+              transition-delay: 0s, 0.3s;
+            }
+            
+            
+            #menuSquareBehind
+            {
+                height: 35px;
+                width: 35px;
+                margin-left:17px;
+                margin-top:17px;
+                z-index:4;
+                position:fixed;
+                border-style: solid;
+                border-color:black;
+                
+                -webkit-transition: width .75s, height .75s, border-color 0.25s;
+                transition: width .75s, height .75s, border-color 0.25s;
+                
+                
+                
+                -webkit-transition-delay:0s;
+                transition-delay: 0s;
+            }
+            ul
+            {
+                list-style-type:none;
+                margin: 0px;
+                padding: 0px;
+                width: 100px;
+                background-color: white;
+                position: relative;
+                top: 50px;
+                left: 95px;
+                font-weight: 700;
+                display: none;
+                -webkit-transition: width .75s, height .75s; 
+                transition: width .75s, height .75s;
+            }
+            li a
+            {
+                display: block;
+                color: black;
+                padding: 8px 0 8px 0;
+                text-decoration: none;
+                text-align: center;
+                
+                -webkit-transition: color 0.25s;
+                animation: color 0.25s;
+            }
+            li a:hover
+            {
+                color: blue;
+            }
+            #lines
+            {
+                height:  65px;
+                width:65px;
+                position: absolute;
+            }
+            #lines:hover + rectLine1
+            {
+                background-color: blue;
+            }
+            
+            #mainScreen
+            {
+                max-width: 100%;
+                height: 100vh;
+                width: 100vw;
+                position: relative;
+            }
+            #titleBlock
+            {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 66vw;
+                height: 42vw;
+            }
+            #mainText
+            {
+                height: 5vw;
+                width: 11vw;
+                position:relative;
+                font-size: 5vw;
+                z-index: 2;
+                font-weight: 700;
+                text-align: center;
+                color: lightgray;
+                float: left;
+                margin-bottom: 20px;
+                -webkit-transition: color 0.25s;
+                animation: color 0.25s;
+            }
+            @-webkit-keyframes hue {
+    from {
+      -webkit-filter: hue-rotate(0deg);
+    }
+    
+    to {
+      -webkit-filter: hue-rotate(360deg);
+    }
+}
+            #mainText:hover
+            {
+                color: blue;
+            }
+            #mainContact
+            {
+                height: auto;
+                width:auto;
+                font-size: 13px;
+                position:fixed;
+                right: 25px;
+                top: 25px;
+                font-weight: 700;
+                z-index: 5;
+            }
+            #cornerName
+            {
+                height: auto;
+                width:auto;
+                font-size: 13px;
+                position:fixed;
+                left: 25px;
+                bottom: 25px;
+                font-weight: 700;
+                z-index: 5;
+                
+                -webkit-transition: color 0.25s;
+                animation: color 0.25s;
+            }
+            #cornerName:hover
+            {
+                color: blue;
+            }
+            a.contact
+            {
+                text-decoration: none;
+                color: black;
+                
+                -webkit-transition: color 0.25s;
+                animation: color 0.25s;
+            }
+            a.contact:hover
+            {
+                color: blue;
+            }
+            #photos
+            {
+                max-width: 100%;
+                width: 100%;
+                height: 40vw;
+                position: relative;
+            }
+            #mainPhoto
+            {
+                width: 66vw;
+                height: auto;
+                max-width: 100%;
+                position: absolute;
+                border-bottom-style: solid;
+                border-bottom-width: 5px;
+                border-color: black;
+            
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                
+            }
+            #mainPic
+            {
+                max-width: 100%;
+                filter: grayscale(100%);
+                -webkit-filter: grayscale(100%);
+                
+                -webkit-transition: grayscale 0.55s;
+                transition: 0.55s;
+            }
+            #mainPic1
+            {
+                max-width: 100%;
+                filter: grayscale(100%);
+                -webkit-filter: grayscale(100%);
+                
+                -webkit-transition: grayscale 0.55s;
+                transition: 0.55s;
+            }
+            #mainPic1:hover + #mainPicText
+            {
+                color: white;
+            }
+                        #mainPic1:hover + #mainPicText1
+            {
+                color: white;
+            }
+
+            #mainPic:hover + #mainPicText
+            {
+                color: white;
+            }
+            #mainPic:hover
+            {
+                filter: grayscale(0%);
+                -webkit-filter: grayscale(0%);
+            }
+            #mainPicText
+            {
+                position: absolute;
+                font-size: 16px;
+                bottom: 15px;
+                left:15px;
+                font-weight: 700;
+                color: black;
+                z-index: 4;
+                padding: 5px;
+                
+                -webkit-transition: color 0.25s;
+                animation: 0.25s;
+            }
+            #mainPicText1
+            {
+                position: absolute;
+                font-size: 16px;
+                top: 15px;
+                left:15px;
+                font-weight: 700;
+                color: black;
+                z-index: 4;
+                padding: 5px;
+                
+                -webkit-transition: color 0.25s;
+                animation: 0.25s;
+            }
+            #mainPicText:hover
+            {
+                color:white;
+            }
+            #mainPhotoBox
+            {
+                width: 95vw;
+                height: auto;
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #introText
+            {
+                margin-top: 15px;
+                width: 35vw;
+                height: auto;
+                margin-left: 20vw;
+                line-height: 170%;
+                font-size: 16px;
+            }
+            #toDownBox
+            {
+                width: 65px;
+                height: 65px;
+                bottom: 17px;
+                right: 17px;
+                position: fixed;
+                z-index: 10;
+                display:visible;
+            }
+            #toDownBox:hover #toDownLine
+            {
+                background-color: blue;
+            }
+            #toDownBox:hover #toDownLine2
+            {
+                background-color: blue;
+            }
+            #toDownBox:hover #toDownLine3
+            {
+                background-color: blue;
+            }
+            #toDownBox:hover #toDownLine4
+            {
+                background-color: blue;
+            }
+            
+            #toDownLine
+            {
+                position: absolute;
+                background-color: black;
+                width: 25px;
+                height: 4px;
+                top: 20px;
+                left: 12px;
+                -ms-transform: rotate(45deg); /* IE 9 */
+                -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+                transform: rotate(45deg);
+                
+                
+                -webkit-transition: rotate .75s; 
+                transition: rotate .75s;
+                
+                
+                -webkit-transition: background-color 0.25s;
+                animation: 0.25s;
+            }
+            #toDownLine2
+            {
+                position: absolute;
+                background-color: black;
+                width: 25px;
+                height: 4px;
+                top: 20px;
+                right: 12px;
+                -ms-transform: rotate(-45deg); /* IE 9 */
+                -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+                transform: rotate(-45deg);
+                
+                -webkit-transition: background-color 0.25s;
+                animation: 0.25s;
+            }
+            #toDownLine3
+            {
+                position: absolute;
+                background-color: black;
+                width: 25px;
+                height: 4px;
+                top: 35px;
+                left: 12px;
+                -ms-transform: rotate(45deg); /* IE 9 */
+                -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+                transform: rotate(45deg);
+                
+                -webkit-transition: background-color 0.25s;
+                animation: 0.25s;
+            }
+            #toDownLine4
+            {
+                position: absolute;
+                background-color: black;
+                width: 25px;
+                height: 4px;
+                top: 35px;
+                right: 12px;
+                -ms-transform: rotate(-45deg); /* IE 9 */
+                -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+                transform: rotate(-45deg);
+                
+                -webkit-transition: background-color 0.25s;
+                animation: 0.25s;
+            }
+            
+            
+            
+            
+            
+            
+            
+             #toTopBox
+            {
+                width: 65px;
+                height: 65px;
+                bottom: 17px;
+                right: 17px;
+                position: fixed;
+                z-index: 10;
+                display:none;
+            }
+            #toTopBox:hover #toTopLine
+            {
+                background-color: blue;
+            }
+            #toTopBox:hover #toTopLine2
+            {
+                background-color: blue;
+            }
+            #toTopBox:hover #toTopLine3
+            {
+                background-color: blue;
+            }
+            #toTopBox:hover #toTopLine4
+            {
+                background-color: blue;
+            }
+            
+            #toTopLine
+            {
+                position: absolute;
+                background-color: black;
+                width: 25px;
+                height: 4px;
+                top: 20px;
+                left: 12px;
+                -ms-transform: rotate(-45deg); /* IE 9 */
+                -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+                transform: rotate(-45deg);
+                
+                
+                -webkit-transition: rotate .75s; 
+                transition: rotate .75s;
+                
+                
+                -webkit-transition: background-color 0.25s;
+                animation: 0.25s;
+            }
+            #toTopLine2
+            {
+                position: absolute;
+                background-color: black;
+                width: 25px;
+                height: 4px;
+                top: 20px;
+                right: 12px;
+                -ms-transform: rotate(45deg); /* IE 9 */
+                -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+                transform: rotate(45deg);
+                
+                -webkit-transition: background-color 0.25s;
+                animation: 0.25s;
+            }
+            #toTopLine3
+            {
+                position: absolute;
+                background-color: black;
+                width: 25px;
+                height: 4px;
+                top: 35px;
+                left: 12px;
+                -ms-transform: rotate(-45deg); /* IE 9 */
+                -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+                transform: rotate(-45deg);
+                
+                -webkit-transition: background-color 0.25s;
+                animation: 0.25s;
+            }
+            #toTopLine4
+            {
+                position: absolute;
+                background-color: black;
+                width: 25px;
+                height: 4px;
+                top: 35px;
+                right: 12px;
+                -ms-transform: rotate(45deg); /* IE 9 */
+                -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+                transform: rotate(45deg);
+                
+                -webkit-transition: background-color 0.25s;
+                animation: 0.25s;
+            }
+            
+                        
+        </style>
+        
+    </head>
+    
+    <body>
+        
+        
+        <!-- The Menu ------------------------------------------->
+        <div id = "menuSquare">       
+            <button class="c-hamburger c-hamburger--htx">
+              <span>toggle menu</span>
+            </button>
+            
+            <ul id = "menuOptions">
+                <li><a href = "default.html">About Me</a></li>
+                <li><a href = "projects.html">Projects</a></li>
+                <li><a href = "resume.html">Resume</a></li>
+            </ul>
+        </div>
+        
+        <div id = "menuSquareBehind"></div>
+        <!-------------------------------------------------------->
+        
+        
+        
+        <div id = "mainScreen">
+            
+            <div id = "titleBlock">
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+                <div id = "mainText">jack</div>
+
+                
+            </div>
+            
+            
+            
+            
+            
+            
+            <div id = "mainContact"> 
+                <a class = "contact" href = "https://ca.linkedin.com/in/jack-ding-63236bb4">LinkedIn</a> / 
+                <a class = "contact" href = "">Github</a> / 
+                <a class = "contact" href = "mailto:jackding.email@gmail.com?Subject=Hello%20There!" target="_top">Email</a>
+            </div>
+
+            <div id = "cornerName">Jack Ding<br>Student</div>
+            
+            
+            
+            
+            
+            
+            
+            </div>
+        
+         <a id = "toTopBox" href = "">
+            <div id = "toTopLine"></div>
+            <div id = "toTopLine2"></div>
+            <div id = "toTopLine3"></div>
+            <div id = "toTopLine4"></div>
+        </a>
+        
+        <a id = "toDownBox" href = "">
+            <div id = "toDownLine"></div>
+            <div id = "toDownLine2"></div>
+            <div id = "toDownLine3"></div>
+            <div id = "toDownLine4"></div>
+        </a>
+        
+        
+         <div id = "photos">
+                <div id = "mainPhoto">
+                    <img id = "mainPic1" src = "jack.JPG">
+                    <div id = "mainPicText">Grand Canyon<br>
+                    Jun. 12th, '14</div>
+                </div>        
+        </div>
+        
+        
+        <div id = "introText">
+            <span style = "font-size: 26px; color: black; font-weight: 200">About Me</span><br><br>
+            Hey there! My name's Jack Ding. It's nice to meet you. A 60-second introduction: I'm a second year computer science student at the University of Western Ontario. I'm really fortunate to have found a major that I'm truly, genuinely passionate about. Computer science gave me the freedom to test my creativity and critical thinking both in and out of class. I look forward to developing more projects in the years to come.
+            
+            <br><br> Coffee gets me through the day, and tea through the night. In my spare time, I like to sing, debate, and watch TED Talks.
+        </div>
+        
+        <br><br><br><br><br><br>
+        <div id = "photos">
+                <div id = "mainPhoto">
+                    <img id = "mainPic" src = "vig.jpg">
+                </div>        
+        </div>
+        <div id = "introText">
+            <span style = "font-size: 26px; color: black; font-weight: 200">Programming & Design</span><br><br>
+            One aspect of tech that I'm constantly fascinated with is the intersection of programming and design. I've always held the belief that software should be as beautiful as it is functional. I'm glad that the notion of design has evolved past the idea of simply "making things pretty". Google's Material Design language is just one of countless examples indicating this progression.
+            <br><br>
+            Something I've always been curious about is how traditional design influences future design. We've seen how Swiss-style graphic design principles influenced the rise of Flat UI. We're also starting to see examples of hand-drawn illustration over vector-based graphics in web and mobile. I'm interested to see how tech design changes in the coming years. 
+        </div>
+        <br><br><br><br><br><br>
+        <div id = "photos">
+                <div id = "mainPhoto">
+                    <img id = "mainPic1" src = "db8.jpg">
+                    <div id = "mainPicText1">World Debating Championship<br>
+                    Jan. 3rd, '16</div>
+                </div>        
+        </div>
+        <div id = "introText">
+            <span style = "font-size: 26px; color: black; font-weight: 200">Other Stuff</span><br><br>
+            When I'm not coding, I debate. It's been a pretty big part of my life for the past 5 years, and I can honestly say that it's changed my life for the better. Going to this year's World Universities Debating Championship as a representative of Canada was definitely a highlight, as it allowed me to compete against some of the brightest people I've ever met. <br><br>
+            
+        I'm also serving as this year's Director of Events for the National Business and Technology Conference hosted by Nspire. As the largest student-run conference for business and technology in Canada, we've had the opportunity to collaborate with major companies and sponsors like Facebook, Microsoft, IBM, and more. I've been blessed to work with an amazing team to bring the conference into it's 16th year. 
+        </div>
+        
+        <br><br><br><br><br><br>
+    
+        
+       
+        
+            
+ 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </body>
+    
+</html>

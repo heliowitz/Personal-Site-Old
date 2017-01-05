@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+            <script>
+                
+                var n = 0; /*Default not clicked */
+                
+            $(document).ready(function(){
+                        (function() {
+
+                  "use strict";
+
+                  var toggles = document.querySelectorAll(".c-hamburger");
+
+                  for (var i = toggles.length - 1; i >= 0; i--) {
+                    var toggle = toggles[i];
+                    toggleHandler(toggle);
+                  };
+
+                  function toggleHandler(toggle) {
+                    toggle.addEventListener( "click", function(e) {
+                      e.preventDefault();
+                      (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
+                       
+                        if (n == 0)
+                            {
+                                $("#menuSquare").css("-webkit-transition-delay", "0s");
+                                $("#menuSquare").css("transition-delay", "0s");
+                                $("#menuSquareBehind").css("-webkit-transition-delay", "0s");
+                                $("#menuSquareBehind").css("transition-delay", "0s");   
+
+                                $("#menuSquare").css("height", "300px");
+                                $("#menuSquare").css("width", "300px");
+                                $("#menuSquareBehind").css("height", "300px");
+                                $("#menuSquareBehind").css("width", "300px");
+                                $("#menuOptions").delay(500).fadeIn("1000");   
+
+                                n = 1;
+                            }
+                        else
+                        {
+                            $("#menuSquare").css("-webkit-transition-delay", ".2s");
+                            $("#menuSquare").css("transition-delay", ".2s");
+                            $("#menuSquareBehind").css("-webkit-transition-delay", ".2s");
+                            $("#menuSquareBehind").css("transition-delay", ".2s");     
+
+                            $("#menuOptions").fadeOut("10", function(){
+                                $("#menuSquare").css("height", "35px");
+                                $("#menuSquare").css("width", "35px");
+                                $("#menuSquareBehind").css("height", "35px");
+                                $("#menuSquareBehind").css("width", "35px");  
+                            });
+                            n = 0;
+                        }
+ 
+                    
+                    });
+                  }
+
+                })();
+            });
+            </script>
+       
+        
+        <script>
+            $(document).ready(function(){
+	           //Check to see if the window is top if not then display button
+                $(window).scroll(function(){
+                    if ($(this).scrollTop() > 100) {
+                        $('#toTopBox').fadeIn();
+                        
+                    } else {
+                       $('#toTopBox').fadeOut();
+                        
+                    }
+                });
+
+                //Click event to scroll to top
+                $('#toTopBox').click(function(){
+                    
+                        $('html, body').animate({scrollTop : 0},800);
+                        return false;
+                    
+                    
+                    
+                });
+
+            });
+        </script>
+        
+       <script>
+            $(document).ready(function(){
+	           var img = $('.logo1');
+                if(img.length > 0){
+                    var offset = img.offset();
+                    function mouse(evt){
+                        var center_x = (offset.left) + (img.width()/2);
+                        var center_y = (offset.top) + (img.height()/2);
+                        var mouse_x = evt.pageX; var mouse_y = evt.pageY;
+                        var radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
+                        var degree = (radians * (180 / Math.PI) * -1) + 90; 
+                        img.css('-moz-transform', 'rotate('+degree+'deg)');
+                        img.css('-webkit-transform', 'rotate('+degree+'deg)');
+                        img.css('-o-transform', 'rotate('+degree+'deg)');
+                        img.css('-ms-transform', 'rotate('+degree+'deg)');
+                    }
+                    $(document).mousemove(mouse);
+                }
+            });
+        </script>
+        
+        <script>
+            $(document).ready(function(){
+	           var img = $('.logo2');
+                if(img.length > 0){
+                    var offset = img.offset();
+                    function mouse(evt){
+                        var center_x = (offset.left) + (img.width()/2);
+                        var center_y = (offset.top) + (img.height()/2);
+                        var mouse_x = evt.pageX; var mouse_y = evt.pageY;
+                        var radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
+                        var degree = (radians * (180 / Math.PI) * -1) + 90; 
+                        img.css('-moz-transform', 'rotate('+degree+'deg)');
+                        img.css('-webkit-transform', 'rotate('+degree+'deg)');
+                        img.css('-o-transform', 'rotate('+degree+'deg)');
+                        img.css('-ms-transform', 'rotate('+degree+'deg)');
+                    }
+                    $(document).mousemove(mouse);
+                }
+            });
+        </script>
+        
+        <script>
+            $(document).ready(function(){
+	           var img = $('.logo3');
+                if(img.length > 0){
+                    var offset = img.offset();
+                    function mouse(evt){
+                        var center_x = (offset.left) + (img.width()/2);
+                        var center_y = (offset.top) + (img.height()/2);
+                        var mouse_x = evt.pageX; var mouse_y = evt.pageY;
+                        var radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
+                        var degree = (radians * (180 / Math.PI) * -1) + 90; 
+                        img.css('-moz-transform', 'rotate('+degree+'deg)');
+                        img.css('-webkit-transform', 'rotate('+degree+'deg)');
+                        img.css('-o-transform', 'rotate('+degree+'deg)');
+                        img.css('-ms-transform', 'rotate('+degree+'deg)');
+                    }
+                    $(document).mousemove(mouse);
+                }
+            });
+        </script>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <script type="text/javascript">
+            $(document).ready(function()
+            {
+            //Function to generate random color code
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF'.split('');
+                var color = '#';
+                for (var i = 0; i < 6; i++ ) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            function change_random_bgcolor(change_time) {
+            setInterval(function change_color() {
+                $("body").animate({
+                    backgroundColor: getRandomColor()
+                }, 500);
+            }, change_time);
+            }
+            change_random_bgcolor(1000);
+            });
+        </script>
+        
+        
+        
+        <script type="text/javascript">
+            $(document).ready(function()
+            {
+
+            function toggle_color(color1,color2,cycle_time,wait_time) {
+            setInterval(function first_color() {
+                $("body").animate({
+                    backgroundColor: color1
+                }, 1000, function () {
+                    setTimeout(change_color, wait_time);
+                });
+            }, cycle_time);
+
+            function change_color() {
+                $("body").animate({
+                    backgroundColor: color2
+                }, 1000, function () {
+                    setTimeout(function () {}, wait_time);
+                });
+            }
+            }
+
+            toggle_color('#61beb3','#7d4b68',8000,3000);
+            });
+        </script>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <!----------------------------------------->
+        <script>
+            $(document).ready(function(){
+	           $("#slideshow > div:gt(0)").hide();
+
+                setInterval(function() { 
+                  $('#slideshow > div:first')
+                    .fadeOut(1000)
+                    .next()
+                    .fadeIn(1000)
+                    .end()
+                    .appendTo('#slideshow');
+                },  3000);
+            });
+        </script>
+         <script>
+            $(document).ready(function(){
+	           $("#slideshow2 > div:gt(0)").hide();
+
+                setInterval(function() { 
+                  $('#slideshow2 > div:first')
+                    .fadeOut(1000)
+                    .next()
+                    .fadeIn(1000)
+                    .end()
+                    .appendTo('#slideshow2');
+                },  3000);
+            });
+        </script>
+        <script>
+            $(document).ready(function(){
+	           $("#slideshow3 > div:gt(0)").hide();
+
+                setInterval(function() { 
+                  $('#slideshow3 > div:first')
+                    .fadeOut(1000)
+                    .next()
+                    .fadeIn(1000)
+                    .end()
+                    .appendTo('#slideshow3');
+                },  3000);
+            });
+        </script>
+        <script>
+            $(document).ready(function(){
+	           $("#slideshow4 > div:gt(0)").hide();
+
+                setInterval(function() { 
+                  $('#slideshow4 > div:first')
+                    .fadeOut(1000)
+                    .next()
+                    .fadeIn(1000)
+                    .end()
+                    .appendTo('#slideshow4');
+                },  3000);
+            });
+        </script>
+        <script>
+            $(document).ready(function(){
+	           $("#slideshow5 > div:gt(0)").hide();
+
+                setInterval(function() { 
+                  $('#slideshow5 > div:first')
+                    .fadeOut(1000)
+                    .next()
+                    .fadeIn(1000)
+                    .end()
+                    .appendTo('#slideshow5');
+                },  3000);
+            });
+        </script>
+        <script>
+            $(document).ready(function(){
+	           $("#slideshow6 > div:gt(0)").hide();
+
+                setInterval(function() { 
+                  $('#slideshow6 > div:first')
+                    .fadeOut(1000)
+                    .next()
+                    .fadeIn(1000)
+                    .end()
+                    .appendTo('#slideshow6');
+                },  3000);
+            });
+        </script>
+        <!----------------------------------------->
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <style>
+            
+           body, html
+            {
+                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                margin: 0px;
+                max-width: 100%;
+            }
+            /* HELLO*/
+            #menuSquare
+            {
+                background-color: white;
+                height: 35px;
+                width: 35px;
+                margin-left: 25px;
+                margin-top: 25px;
+                z-index: 5;
+                position: fixed;
+                border-style: solid;
+                border-color: black;
+                 
+                -webkit-transition: width .75s, height .75s, border-color 0.25s; 
+                transition: width .75s, height .75s, border-color 0.25s;
+            
+                
+                -webkit-transition-delay:0s;
+                transition-delay: 0s;
+            }
+            #menuSquare:hover
+            {
+                border-color: blue;
+            }
+            #menuSquare:hover + #menuSquareBehind
+            {
+                border-color: blue;
+            }
+            
+            /*Middle*/
+            .c-hamburger span {
+              display: block;
+              position: absolute;
+              top: 16px;
+              left: 8px;
+              right: 8px;
+              height: 3px;
+              background: black;
+            }
+            
+          
+
+            .c-hamburger span::before,
+            .c-hamburger span::after {
+              position: absolute;
+              display: block;
+              left: 0;
+              width: 100%;
+              height: 3px;
+              background-color: black;
+              content: "";
+            }
+
+            .c-hamburger span::before {
+              top: -7px;
+            }
+
+            .c-hamburger span::after {
+              bottom: -7px;
+            }
+            
+            .c-hamburger {
+              display: block;
+              position: relative;
+              overflow: hidden;
+              margin: 0;
+              padding: 0;
+              width: 35px;
+              height: 35px;
+              font-size: 0;
+              text-indent: -9999px;
+              appearance: none;
+              box-shadow: none;
+              border-radius: none;
+              border: none;
+              cursor: pointer;
+              transition: background 0.3s;
+            }
+
+            .c-hamburger:focus {
+              outline: none;
+            }
+            
+            .c-hamburger--htx {
+              background-color: white;
+            }
+
+            .c-hamburger--htx span {
+              transition: background 0s 0.3s;
+            }
+
+            .c-hamburger--htx span::before,
+            .c-hamburger--htx span::after {
+              transition-duration: 0.3s, 0.3s;
+              transition-delay: 0.3s, 0s;
+            }
+
+            .c-hamburger--htx span::before {
+              transition-property: top, transform;
+            }
+
+            .c-hamburger--htx span::after {
+              transition-property: bottom, transform;
+            }
+
+            /* active state, i.e. menu open */
+            .c-hamburger--htx.is-active {
+              background-color: white;
+            }
+
+            .c-hamburger--htx.is-active span {
+              background: none;
+            }
+
+            .c-hamburger--htx.is-active span::before {
+              top: 0;
+              transform: rotate(45deg);
+            }
+
+            .c-hamburger--htx.is-active span::after {
+              bottom: 0;
+              transform: rotate(-45deg);
+            }
+
+            .c-hamburger--htx.is-active span::before,
+            .c-hamburger--htx.is-active span::after {
+              transition-delay: 0s, 0.3s;
+            }
+            
+            
+            #menuSquareBehind
+            {
+                height: 35px;
+                width: 35px;
+                margin-left:17px;
+                margin-top:17px;
+                z-index:4;
+                position:fixed;
+                border-style: solid;
+                border-color:black;
+                
+                -webkit-transition: width .75s, height .75s, border-color 0.25s;
+                transition: width .75s, height .75s, border-color 0.25s;
+                
+                
+                
+                -webkit-transition-delay:0s;
+                transition-delay: 0s;
+            }
+            ul
+            {
+                list-style-type:none;
+                margin: 0px;
+                padding: 0px;
+                width: 100px;
+                background-color: white;
+                position: relative;
+                top: 50px;
+                left: 95px;
+                font-weight: 700;
+                display: none;
+                -webkit-transition: width .75s, height .75s; 
+                transition: width .75s, height .75s;
+            }
+            li a
+            {
+                display: block;
+                color: black;
+                padding: 8px 0 8px 0;
+                text-decoration: none;
+                text-align: center;
+                
+                -webkit-transition: color 0.25s;
+                animation: color 0.25s;
+            }
+            li a:hover
+            {
+                color: blue;
+            }
+            #lines
+            {
+                height:  65px;
+                width:65px;
+                position: absolute;
+            }
+            #lines:hover + rectLine1
+            {
+                background-color: blue;
+            }
+            
+            #mainScreen
+            {
+                max-width: 100%;
+                height: 100vh;
+                width: 100vw;
+                position: relative;
+            }
+            #titleBlock
+            {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                position: relative;
+                top: 120px;
+                width: 66vw;
+                height: 20vw;
+            }
+            #mainText
+            {
+                height: 5vw;
+=                position:relative;
+                font-size: 5vw;
+                z-index: 2;
+                font-weight: 700;
+                text-align: center;
+                color: lightgray;
+                float: left;
+                margin-bottom: 20px;
+                margin-left: 4vw;
+                -webkit-transition: color 0.25s;
+                animation: color 0.25s;
+            }
+            @-webkit-keyframes hue {
+    from {
+      -webkit-filter: hue-rotate(0deg);
+    }
+    
+    to {
+      -webkit-filter: hue-rotate(360deg);
+    }
+}
+            #mainText:hover
+            {
+                color: blue;
+            }
+            #mainContact
+            {
+                height: auto;
+                width:auto;
+                font-size: 13px;
+                position:fixed;
+                right: 25px;
+                top: 25px;
+                font-weight: 700;
+                z-index: 5;
+            }
+            #cornerName
+            {
+                height: auto;
+                width:auto;
+                font-size: 13px;
+                position:fixed;
+                left: 25px;
+                bottom: 25px;
+                font-weight: 700;
+                z-index: 5;
+                
+                -webkit-transition: color 0.25s;
+                animation: color 0.25s;
+            }
+            #cornerName:hover
+            {
+                color: blue;
+            }
+            a.contact
+            {
+                text-decoration: none;
+                color: black;
+                
+                -webkit-transition: color 0.25s;
+                animation: color 0.25s;
+            }
+            a.contact:hover
+            {
+                color: blue;
+            }
+            #photos
+            {
+                max-width: 100%;
+                width: 100%;
+                height: 40vw;
+                position: relative;
+            }
+            #mainPhoto
+            {
+                width: 66vw;
+                height: auto;
+                max-width: 100%;
+                position: absolute;
+                border-bottom-style: solid;
+                border-bottom-width: 5px;
+                border-color: black;
+            
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                
+            }
+            #mainPic
+            {
+                max-width: 100%;
+                filter: grayscale(100%);
+                -webkit-filter: grayscale(100%);
+                
+                -webkit-transition: grayscale 0.55s;
+                transition: 0.55s;
+            }
+            #mainPic1
+            {
+                max-width: 100%;
+                filter: grayscale(100%);
+                -webkit-filter: grayscale(100%);
+                
+                -webkit-transition: grayscale 0.55s;
+                transition: 0.55s;
+            }
+            #mainPic1:hover + #mainPicText
+            {
+                color: white;
+            }
+                        #mainPic1:hover + #mainPicText1
+            {
+                color: white;
+            }
+
+            #mainPic:hover + #mainPicText
+            {
+                color: white;
+            }
+            #mainPic:hover
+            {
+                filter: grayscale(0%);
+                -webkit-filter: grayscale(0%);
+            }
+            #mainPicText
+            {
+                position: absolute;
+                font-size: 16px;
+                bottom: 15px;
+                left:15px;
+                font-weight: 700;
+                color: black;
+                z-index: 4;
+                padding: 5px;
+                
+                -webkit-transition: color 0.25s;
+                animation: 0.25s;
+            }
+            #mainPicText1
+            {
+                position: absolute;
+                font-size: 16px;
+                top: 15px;
+                left:15px;
+                font-weight: 700;
+                color: black;
+                z-index: 4;
+                padding: 5px;
+                
+                -webkit-transition: color 0.25s;
+                animation: 0.25s;
+            }
+            #mainPicText:hover
+            {
+                color:white;
+            }
+            #mainPhotoBox
+            {
+                width: 95vw;
+                height: auto;
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #introText
+            {
+                margin-top: 85px;
+                width: 35vw;
+                height: auto;
+                margin-left: 20vw;
+                line-height: 170%;
+                font-size: 16px;
+            }
+            #introText2
+            {
+                margin-top: 85px;
+                width: 35vw;
+                height: auto;
+                margin-left: 20vw;
+                line-height: 170%;
+                font-size: 16px;
+            }
+            #introText3
+            {
+                margin-top: 85px;
+                width: 35vw;
+                height: auto;
+                margin-left: 20vw;
+                line-height: 170%;
+                font-size: 16px;
+            }
+            #introText4
+            {
+                margin-top: 85px;
+                width: 35vw;
+                height: auto;
+                margin-left: 20vw;
+                line-height: 170%;
+                font-size: 16px;
+            }
+            #introText5
+            {
+                margin-top: 85px;
+                width: 35vw;
+                height: auto;
+                margin-left: 20vw;
+                line-height: 170%;
+                font-size: 16px;
+            }
+            #introText6
+            {
+                margin-top: 25px;
+                width: 35vw;
+                height: auto;
+                margin-left: 20vw;
+                line-height: 170%;
+                font-size: 16px;
+            }
+            #introText7
+            {
+                margin-top: 125px;
+                width: 35vw;
+                height: auto;
+                margin-left: 20vw;
+                line-height: 170%;
+                font-size: 16px;
+            }
+            #toTopBox
+            {
+                width: 65px;
+                height: 65px;
+                bottom: 17px;
+                right: 17px;
+                position: fixed;
+                z-index: 10;
+                display:none;
+            }
+            #toTopBox:hover #toTopLine
+            {
+                background-color: blue;
+            }
+            #toTopBox:hover #toTopLine2
+            {
+                background-color: blue;
+            }
+            #toTopBox:hover #toTopLine3
+            {
+                background-color: blue;
+            }
+            #toTopBox:hover #toTopLine4
+            {
+                background-color: blue;
+            }
+            
+            #toTopLine
+            {
+                position: absolute;
+                background-color: black;
+                width: 25px;
+                height: 4px;
+                top: 20px;
+                left: 12px;
+                -ms-transform: rotate(-45deg); /* IE 9 */
+                -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+                transform: rotate(-45deg);
+                
+                
+                -webkit-transition: rotate .75s; 
+                transition: rotate .75s;
+                
+                
+                -webkit-transition: background-color 0.25s;
+                animation: 0.25s;
+            }
+            #toTopLine2
+            {
+                position: absolute;
+                background-color: black;
+                width: 25px;
+                height: 4px;
+                top: 20px;
+                right: 12px;
+                -ms-transform: rotate(45deg); /* IE 9 */
+                -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+                transform: rotate(45deg);
+                
+                -webkit-transition: background-color 0.25s;
+                animation: 0.25s;
+            }
+            #toTopLine3
+            {
+                position: absolute;
+                background-color: black;
+                width: 25px;
+                height: 4px;
+                top: 35px;
+                left: 12px;
+                -ms-transform: rotate(-45deg); /* IE 9 */
+                -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+                transform: rotate(-45deg);
+                
+                -webkit-transition: background-color 0.25s;
+                animation: 0.25s;
+            }
+            #toTopLine4
+            {
+                position: absolute;
+                background-color: black;
+                width: 25px;
+                height: 4px;
+                top: 35px;
+                right: 12px;
+                -ms-transform: rotate(45deg); /* IE 9 */
+                -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+                transform: rotate(45deg);
+                
+                -webkit-transition: background-color 0.25s;
+                animation: 0.25s;
+            }
+            
+            
+            #slideshow { 
+    margin: 0px auto;
+    position: relative; 
+    width: 66vw; 
+    height: 42vw; 
+    padding: 10px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+}
+
+#slideshow > div { 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    right: 10px; 
+    bottom: 10px; 
+}
+            #slideshow15 { 
+    margin: 0px auto;
+    position: relative; 
+    width: 66vw; 
+    height: 42vw; 
+    padding: 10px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+}
+
+#slideshow15 > div { 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    right: 10px; 
+    bottom: 10px; 
+}
+                        #slideshow2 { 
+    margin: 0px auto;
+    position: relative; 
+    width: 66vw; 
+    height: 42vw; 
+    padding: 10px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+}
+
+#slideshow2 > div { 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    right: 10px; 
+    bottom: 10px; 
+}
+#slideshow3 { 
+    margin: 0px auto;
+    position: relative; 
+    width: 66vw; 
+    height: 42vw; 
+    padding: 10px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+}
+
+#slideshow3 > div { 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    right: 10px; 
+    bottom: 10px; 
+}
+            #slideshow4 { 
+    margin: 0px auto;
+    position: relative; 
+    width: 66vw; 
+    height: 42vw; 
+    padding: 10px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+}
+
+#slideshow4 > div { 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    right: 10px; 
+    bottom: 10px; 
+}
+            #slideshow5 { 
+    margin: 0px auto;
+    position: relative; 
+    width: 66vw; 
+    height: 38vw; 
+    padding: 10px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+}
+
+#slideshow5 > div { 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    right: 10px; 
+    bottom: 10px; 
+}
+            #slideshow6 { 
+    margin: 0px auto;
+    position: relative; 
+    width: 66vw; 
+    height: 45vw; 
+    padding: 10px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+}
+
+#slideshow6 > div { 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    right: 10px; 
+    bottom: 10px; 
+}
+            #logoBlock
+            {
+                width: 22vw;
+                float: left;
+                margin-top: 40px;
+                text-align: center;
+                font-weight: 700;
+                font-size: 13px;
+                color: gray;
+            }
+            .logo1
+            {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .logo2
+            {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .logo3
+            {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+                        
+        </style>
+        
+        
+        
+        
+        
+    
+    </head>
+    
+    
+   
+    
+    <body>
+        
+        
+        
+       <!-- The Menu ------------------------------------------->
+        <div id = "menuSquare">       
+            <button class="c-hamburger c-hamburger--htx">
+              <span>toggle menu</span>
+            </button>
+            
+            <ul id = "menuOptions">
+                <li><a href = "default.html">About Me</a></li>
+                <li><a href = "projects.html">Projects</a></li>
+                <li><a href = "resume.html">Resume</a></li>
+            </ul>
+        </div>
+        
+        <div id = "menuSquareBehind"></div>
+        <!-------------------------------------------------------->
+        
+        
+        
+        <div id = "mainScreen">
+            
+            <div id = "titleBlock">
+                <div id = "mainText">Some</div>
+                <div id = "mainText">Recent</div>
+                <div id = "mainText">Projects.</div>
+                
+                                
+                <div id = "logoBlock">
+                    <img src = "gameLogo2.png" class = "logo1"><br>
+                    Games
+                </div>
+                <div id = "logoBlock">
+                    <img src = "algoLogo2.png" class = "logo2"><br>
+                    Algorithms
+                </div>
+                <div id = "logoBlock">
+                    <img src = "webLogo2.png" class = "logo3"><br>
+                    Web
+                </div>
+                
+                
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            <div id = "mainContact"> 
+                <a class = "contact" href = "https://ca.linkedin.com/in/jack-ding-63236bb4">LinkedIn</a> / 
+                <a class = "contact" href = "">Github</a> / 
+                <a class = "contact" href = "mailto:jackding.email@gmail.com?Subject=Hello%20There!" target="_top">Email</a>
+
+            <div id = "cornerName">Jack Ding<br>Student</div>
+            
+            
+            
+            
+            
+            
+            
+            </div>
+        
+         <a id = "toTopBox" href = "">
+            <div id = "toTopLine"></div>
+            <div id = "toTopLine2"></div>
+            <div id = "toTopLine3"></div>
+            <div id = "toTopLine4"></div>
+        </a>
+        
+        
+        
+        
+        <br><br><br><br><br><br><br><br><br><br>
+
+
+        
+        
+        
+        
+        
+        
+        <div id = "photos">
+            
+            
+            <div id = "mainPhotoBox">
+                <div id="slideshow">
+   <div>
+     <img id = "mainPhoto" src = "projectsPhotos/Home.png">
+   </div>
+   <div>
+<img id = "mainPhoto" src = "projectsPhotos/Glaser.png">   </div>
+   <div>
+       <img id = "mainPhoto" src = "projectsPhotos/Rand.png">   </div>
+                    <div>
+       <img id = "mainPhoto" src = "projectsPhotos/Bass.png">   </div>
+                    <div>
+       <img id = "mainPhoto" src = "projectsPhotos/Vignelli.png">   </div>
+                    <div>
+       <img id = "mainPhoto" src = "projectsPhotos/Lubalin.png">   </div>
+                    <div>
+       <img id = "mainPhoto" src = "projectsPhotos/Casey.png">   </div>
+   </div>
+                
+</div>
+            </div>
+        
+        <div id = "introText">
+            <span style = "font-size: 30px; color: blue;"> Graphic Designers </span><br><br>
+            
+            <span style = "font-size: 13px; font-weight: 700; line-height: 30%;">2015<br>
+            HTML, CSS, JavaScript
+                <br> <a href = "http://publish.uwo.ca/~yding96/finalWeb/index.html">LINK TO SITE</a>
+                <br><br></span> 
+            
+            <span style = "font-weight: 700; color: blue;">About<br></span>
+            Developed a website as the final project for my Web Design class. The website explores the lives, styles, works and impacts of 6 significant graphic designers: Milton Glaser, Paul Rand, Saul Bass, Massimo Vignelli, Herb Lubalin, and Jacqueline Casey. Used each designers' styles as a starting point for each page's colour scheme, layout, etc. Was deemed "excellent" by the professor and was used in future classes as an example of web design. 
+        
+            <br><br>
+        
+            <span style = "font-weight: 700; color: blue;">Notes<br></span>
+            This project was a good introduction to building a complete website. If given more time, I would've worked harder to integrate each designers' works directly with the content. Greater animation and more sophisticated UI could have been added as well.
+        </div>
+        
+        
+        
+        <br>
+        <br><br><br>
+        <br>
+        <br><br><br><br><br><br><br>
+        
+         <div id = "photos">
+            
+            
+            <div id = "mainPhotoBox">
+                <div id="slideshow2">
+   <div>
+     <img id = "mainPhoto" src = "projectsPhotos/tab1.png">
+   </div>
+   <div>
+<img id = "mainPhoto" src = "projectsPhotos/tab2.png">   </div>
+   <div>
+       <img id = "mainPhoto" src = "projectsPhotos/tab3.png">   </div>
+
+                
+</div>
+            </div>
+        </div>
+        
+        <div id = "introText2">
+            <span style = "font-size: 30px; color: blue;"> Back Tabbing Program </span><br><br>
+            
+            <span style = "font-size: 13px; font-weight: 700; line-height: 30%;">2015<br>
+            Java<br><br></span> 
+            
+            <span style = "font-weight: 700; color: blue;">About<br></span>
+            Created a program that is able to "back tab" the results of a debate tournament; that is, to determine the number of teams to break to open rounds based on the tournament structure, and current progress of the in rounds. Was able to predict the 36-team break at this year's Worlds Universities Debating Championship exactly. The program was also tested with past tournaments. This program was mainly created out of personal necessity, as I wanted to have a better grasp on the number of points needed to break to open rounds, and to track my progress accordingly as the tournament progressed. 
+        
+            <br><br>
+        
+            <span style = "font-weight: 700; color: blue;">Notes<br></span>
+            The back tab program was written very hastily, as it was mainly for my own personal use. Given that I'll probably use it at future tournaments, I might take the time to smooth out the aesthetics of the program, and perhaps bring it to my phone.
+        </div>
+        
+        
+        
+        <br>
+        <br><br><br>
+        <br>
+        <br><br><br><br><br><br><br>
+        
+        
+        <div id = "photos">
+            
+            
+            <div id = "mainPhotoBox">
+                <div id="slideshow2">
+   <div>
+     <img id = "mainPhoto" src = "projectsPhotos/Compress1.png">
+   </div>
+   <div>
+<img id = "mainPhoto" src = "projectsPhotos/Compress2.png">   </div>
+   <div>
+       <img id = "mainPhoto" src = "projectsPhotos/Compress3.png">   </div>
+
+                
+</div>
+            </div>
+        </div>
+        
+         <div id = "introText3">
+            <span style = "font-size: 30px; color: blue;"> Compression Program</span><br><br>
+            
+            <span style = "font-size: 13px; font-weight: 700; line-height: 30%;">2015<br>
+            Java<br><br></span> 
+            
+            <span style = "font-weight: 700; color: blue;">About<br></span>
+            A compression program that is able to compress text documents to half their original size. Stored character sets in a dictionary that was implemented using a hash table. The hash table used a djb2 hash function. The program was tested by compressing an engineering textbook.
+        
+             <br><br>
+            
+            <span style = "font-weight: 700; color: blue;">Notes<br></span>
+             Much of my time in developing this program came down to finding a suitable hash function. It was a good introduction to the different types of purpose-driven hashes. The idea of being able to re-create a commonly used computer tool was really interesting. I might try to adapt this program to compress binary files in the future.
+            
+        </div>
+        
+        <br>
+        <br><br><br>
+        <br>
+        <br><br><br><br><br><br><br>
+        
+        
+        
+        
+        
+        
+        <div id = "photos">
+            
+            
+            <div id = "mainPhotoBox">
+                <div id="slideshow3">
+   <div>
+     <img id = "mainPhoto" src = "projectsPhotos/Map1.png">
+   </div>
+   <div>
+<img id = "mainPhoto" src = "projectsPhotos/Map2.png">   </div>
+   <div>
+       <img id = "mainPhoto" src = "projectsPhotos/Map3.png">   </div>
+                    <div>
+       <img id = "mainPhoto" src = "projectsPhotos/Map4.png">   </div>
+                   
+                
+</div>
+            </div>
+        </div>
+        
+         <div id = "introText4">
+            <span style = "font-size: 30px; color: blue;"> Path-Finder </span><br><br>
+            
+            <span style = "font-size: 13px; font-weight: 700; line-height: 30%;">2015<br>
+            Java<br><br></span> 
+            
+            <span style = "font-weight: 700; color: blue;">About<br></span>
+            This program uses a modified version of Dijkstra's Algorithm to find the most efficient path (A path with the minimum number of street changes) in a Map. Implemented a Graph interface as well as depth-first and breadth-first traversal methods. 
+
+             <br><br>
+            
+            <!--<span style = "font-weight: 700; color: blue;">Notes<br></span>-->
+            
+        </div>
+        
+        <br>
+        <br><br><br>
+        <br>
+        <br><br><br><br><br><br><br>
+        
+        
+        
+        
+        <div id = "photos">
+            
+            
+            <div id = "mainPhotoBox">
+                <div id="slideshow4">
+   <div>
+     <img id = "mainPhoto" src = "projectsPhotos/Pac1.png">
+   </div>
+   <div>
+<img id = "mainPhoto" src = "projectsPhotos/Pac2.png">   </div>
+   <div>
+       <img id = "mainPhoto" src = "projectsPhotos/Pac3.png">   </div>
+                    
+   </div>
+                
+</div>
+            </div>
+        
+         <div id = "introText5">
+            <span style = "font-size: 30px; color: blue;"> Pac-Man </span><br><br>
+            
+            <span style = "font-size: 13px; font-weight: 700; line-height: 30%;">2015<br>
+            Java<br><br></span> 
+            
+            <span style = "font-weight: 700; color: blue;">About<br></span>
+            Created a program that was able to detect and manage character collisions in a Pac-Man based game. Also was able to track movement, upgrades, and game-over sequences. Implemented a Binary Search Tree, along with various traversal methods to store and manage individual pixels.
+        
+<br><br>            
+           <!-- <span style = "font-weight: 700; color: blue;">Notes<br></span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.-->
+        </div>
+        
+        <br>
+        <br><br><br>
+        <br>
+        <br><br><br><br><br><br><br>
+        
+        
+        
+        
+        <div id = "photos">
+            
+            
+            <div id = "mainPhotoBox">
+                <div id="slideshow5">
+   <div>
+     <img id = "mainPhoto" src = "projectsPhotos/Space1.png">
+   </div>
+   <div>
+<img id = "mainPhoto" src = "projectsPhotos/Space2.png">   </div>
+   <div>
+       <img id = "mainPhoto" src = "projectsPhotos/Space3.png">   </div>
+                    <div>
+       <img id = "mainPhoto" src = "projectsPhotos/Space4.png">   </div>
+                    <div>
+       <img id = "mainPhoto" src = "projectsPhotos/Space5.png">   </div>
+                    <div>
+       <img id = "mainPhoto" src = "projectsPhotos/Space6.png">   </div>
+                    <div>
+       <img id = "mainPhoto" src = "projectsPhotos/Space7.png">   </div>
+                   
+   </div>
+                
+</div>
+            </div>
+        
+         <div id = "introText6">
+            <span style = "font-size: 30px; color: blue;"> Asteroids </span><br><br>
+            
+            <span style = "font-size: 13px; font-weight: 700; line-height: 30%;">2014<br>
+            Java, Greenfoot API<br><br></span> 
+            
+            <span style = "font-weight: 700; color: blue;">About<br></span>
+            Developed a version of the classic arcade game Asteroids. Additional features were included such as power-ups, enemy saucers, shields, etc. Also created original sprites to mimic 8-bit style games. Used the Greenfoot API to implement elements of collisions, movement, frame rates, spawning, etc.
+        
+<br><br>            
+            <span style = "font-weight: 700; color: blue;">Notes<br></span>
+            This project introduced me to the wonders of game-creation. I was able to challenge myself creatively and intellectually. It was also a great feeling to make something that my friends could play.
+        </div>
+        
+        <br>
+        <br><br><br>
+        <br>
+        <br><br><br><br><br><br><br>
+        
+        
+        
+        
+        <div id = "photos">
+            
+            
+            <div id = "mainPhotoBox">
+                <div id="slideshow6">
+   <div>
+     <img id = "mainPhoto" src = "projectsPhotos/Sim1.png">
+   </div>
+   <div>
+<img id = "mainPhoto" src = "projectsPhotos/Sim2.png">   </div>
+   <div>
+       <img id = "mainPhoto" src = "projectsPhotos/Sim3.png">   </div>
+                    <div>
+       <img id = "mainPhoto" src = "projectsPhotos/Sim4.png">   </div>
+                    <div>
+       <img id = "mainPhoto" src = "projectsPhotos/Sim5.png">   </div>
+                    <div>
+       <img id = "mainPhoto" src = "projectsPhotos/Sim6.png">   </div>
+                    <div>
+       <img id = "mainPhoto" src = "projectsPhotos/Sim7.png">   </div>
+   </div>
+                
+</div>
+            </div>
+        
+         <div id = "introText7">
+            <span style = "font-size: 30px; color: blue;"> Space Simulation </span><br><br>
+            
+            <span style = "font-size: 13px; font-weight: 700; line-height: 30%;">2014<br>
+            Java, Greenfoot API<br><br></span> 
+            
+            <span style = "font-weight: 700; color: blue;">About<br></span>
+            Created a planetary program that tracked and simulated elements of war, development, and space. Used a physics engine to track orbiting and gravitational pull between objects. 
+        
+<br><br>            
+            <span style = "font-weight: 700; color: blue;">Notes<br></span>
+            Learning to operate within a team atmosphere was important. It taught me how to build projects not just as an individual but within a group, from ideation to final execution. This was also my first time incorporating advanced math in a program, in order to simulate gravitational pull.
+        </div>
+        
+        <br>
+        <br><br><br>
+        <br>
+        <br><br><br><br><br><br><br>
+        
+        
+    </body>
+        
+    
+</html>

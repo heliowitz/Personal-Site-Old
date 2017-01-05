@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+            <script>
+                
+                var n = 0; /*Default not clicked */
+                
+            $(document).ready(function(){
+                        (function() {
+
+                  "use strict";
+
+                  var toggles = document.querySelectorAll("#menuSquare1");
+
+                  for (var i = toggles.length - 1; i >= 0; i--) {
+                    var toggle = toggles[i];
+                    toggleHandler(toggle);
+                  };
+
+                  function toggleHandler(toggle) {
+                    toggle.addEventListener( "click", function(e) {
+                      e.preventDefault();
+                      (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
+                       
+                        if (n == 0)
+                            {
+                                $("#menuSquare1").css("-webkit-transition-delay", "0s");
+                                $("#menuSquare1").css("transition-delay", "0s");
+                                $("#menuSquareBehind1").css("-webkit-transition-delay", "0s");
+                                $("#menuSquareBehind1").css("transition-delay", "0s");   
+
+                                $("#menuSquare1").css("top", "50px");
+                                $("#menuSquare1").css("bottom", "50px");
+                                $("#menuSquare1").css("left", "50px");
+                                $("#menuSquare1").css("right", "50px");
+                                $("#menuSquareBehind1").css("top", "40px");
+                                $("#menuSquareBehind1").css("bottom", "60px");
+                                $("#menuSquareBehind1").css("left", "40px");
+                                $("#menuSquareBehind1").css("right", "60px");
+                                
+                                $("#menuSquare1").css("z-index", "10");
+                                 $("#menuSquareBehind1").css("z-index", "9");
+                                
+                                n = 1;
+                            }
+                        else
+                        {
+                            $("#menuSquare1").css("-webkit-transition-delay", ".2s");
+                            $("#menuSquare1").css("transition-delay", ".2s");
+                            $("#menuSquareBehind1").css("-webkit-transition-delay", ".2s");
+                            $("#menuSquareBehind1").css("transition-delay", ".2s");     
+
+                               
+                            
+                            $("#menuSquare1").css("top", "300px");
+                                $("#menuSquare1").css("bottom", "300px");
+                                $("#menuSquare1").css("left", "400px");
+                                $("#menuSquare1").css("right", "400px");
+                                $("#menuSquareBehind1").css("top", "290px");
+                                $("#menuSquareBehind1").css("bottom", "310px");
+                                $("#menuSquareBehind1").css("left", "390px");
+                                $("#menuSquareBehind1").css("right", "410px");
+                            
+                             $("#menuSquare1").css("z-index", "5");
+                                 $("#menuSquareBehind1").css("z-index", "4");
+                       
+                            n = 0;
+                        }
+ 
+                    
+                    });
+                  }
+
+                })();
+            });
+            </script>
+        
+        <script>
+                
+                var n = 0; /*Default not clicked */
+                
+            $(document).ready(function(){
+                        (function() {
+
+                  "use strict";
+
+                  var toggles = document.querySelectorAll("#menuSquare2");
+
+                  for (var i = toggles.length - 1; i >= 0; i--) {
+                    var toggle = toggles[i];
+                    toggleHandler(toggle);
+                  };
+
+                  function toggleHandler(toggle) {
+                    toggle.addEventListener( "click", function(e) {
+                      e.preventDefault();
+                      (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
+                       
+                        if (n == 0)
+                            {
+                                $("#menuSquare2").css("-webkit-transition-delay", "0s");
+                                $("#menuSquare2").css("transition-delay", "0s");
+                                $("#menuSquareBehind2").css("-webkit-transition-delay", "0s");
+                                $("#menuSquareBehind2").css("transition-delay", "0s");   
+
+                                $("#menuSquare2").css("top", "50px");
+                                $("#menuSquare2").css("bottom", "50px");
+                                $("#menuSquare2").css("left", "50px");
+                                $("#menuSquare2").css("right", "50px");
+                                $("#menuSquareBehind2").css("top", "40px");
+                                $("#menuSquareBehind2").css("bottom", "60px");
+                                $("#menuSquareBehind2").css("left", "40px");
+                                $("#menuSquareBehind2").css("right", "60px");
+                                
+                                $("#menuSquare2").css("z-index", "10");
+                                 $("#menuSquareBehind2").css("z-index", "9");
+                                
+                                n = 1;
+                            }
+                        else
+                        {
+                            $("#menuSquare2").css("-webkit-transition-delay", ".2s");
+                            $("#menuSquare2").css("transition-delay", ".2s");
+                            $("#menuSquareBehind2").css("-webkit-transition-delay", ".2s");
+                            $("#menuSquareBehind2").css("transition-delay", ".2s");     
+
+                               
+                            
+                            $("#menuSquare2").css("top", "20px");
+                                $("#menuSquare2").css("bottom", "700px");
+                                $("#menuSquare2").css("left", "400px");
+                                $("#menuSquare2").css("right", "400px");
+                                $("#menuSquareBehind2").css("top", "10px");
+                                $("#menuSquareBehind2").css("bottom", "710px");
+                                $("#menuSquareBehind2").css("left", "390px");
+                                $("#menuSquareBehind2").css("right", "410px");
+                            
+                            $("#menuSquare2").css("z-index", "5");
+                                 $("#menuSquareBehind2").css("z-index", "4");
+                       
+                            n = 0;
+                        }
+ 
+                    
+                    });
+                  }
+
+                })();
+            });
+            </script>
+        
+        
+        
+        
+        <style>
+            #menuSquare1, #menuSquare2
+            {
+                background-color: white;             
+                z-index: 5;
+                position: fixed;
+                border-style: solid;
+                border-color: black;
+                
+                
+            }
+            #menuSquare1:hover, #menuSquare2:hover
+            {
+                border-color: blue;
+            }
+            #menuSquare1:hover + #menuSquareBehind1, #menuSquare2:hover + #menuSquareBehind2
+            {
+                border-color: blue;
+            }   
+            #menuSquareBehind1, #menuSquareBehind2
+            {
+                z-index:4;
+                position:fixed;
+                border-style: solid;
+                border-color:black;
+                 
+               
+            }
+            
+            #menuSquare1
+            {
+                top: 300px;
+                bottom: 300px;
+                left: 400px;
+                right: 400px;
+                 
+                -webkit-transition: top .75s, bottom .75s, left .75s, right .75s, border-color 0.25s, z-index 1s;  
+                transition:  top .75s, bottom .75s, left .75s, right .75s, border-color 0.25s, z-index 1s;
+            
+                -webkit-transition-delay:0s;
+                transition-delay: 0s;
+            }
+            #menuSquareBehind1
+            {
+                top: 290px;
+                bottom: 310px;
+                left: 390px;
+                right: 410px;
+                 
+                -webkit-transition: top .75s, bottom .75s, left .75s, right .75s, border-color 0.25s, z-index 1s;  
+                transition:  top .75s, bottom .75s, left .75s, right .75s, border-color 0.25s, z-index 1s;
+              
+                -webkit-transition-delay:0s;
+                transition-delay: 0s;
+            }
+            #menuSquare2
+            {
+                top: 20px;
+                bottom: 700px;
+                left: 400px;
+                right: 400px;
+                 
+                -webkit-transition: top .75s, bottom .75s, left .75s, right .75s, border-color 0.25s, z-index 1s;  
+                transition:  top .75s, bottom .75s, left .75s, right .75s, border-color 0.25s, z-index 1s;
+            
+                -webkit-transition-delay:0s;
+                transition-delay: 0s;
+            }
+            #menuSquareBehind2
+            {
+                top: 10px;
+                bottom: 710px;
+                left: 390px;
+                right: 410px;
+                 
+                -webkit-transition: top .75s, bottom .75s, left .75s, right .75s, border-color 0.25s, z-index 1s;  
+                transition:  top .75s, bottom .75s, left .75s, right .75s, border-color 0.25s, z-index 1s;
+              
+                -webkit-transition-delay:0s;
+                transition-delay: 0s;
+            }
+
+        </style>
+        
+    </head>
+    
+    
+    
+    <body>
+    
+        
+        <div id = "menuSquare1"></div>
+        <div id = "menuSquareBehind1"></div>
+        
+        <div id = "menuSquare2"></div>
+        <div id = "menuSquareBehind2"></div>
+        
+
+        
+    </body>
+
+</html>
+
